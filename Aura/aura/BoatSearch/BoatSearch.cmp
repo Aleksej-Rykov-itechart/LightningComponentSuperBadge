@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	<!-- Search Component Card -->    
+	<lightning:card title="Find a Boat" class="slds-m-top_10px" >
+     	<c:BoatSearchForm />
+	</lightning:card>    
+
+    <!-- Search Results Component Card -->  
+    <lightning:card title="Matching Boats" >
+     	<c:BoatSearchResults />
+	</lightning:card>
+</aura:component>

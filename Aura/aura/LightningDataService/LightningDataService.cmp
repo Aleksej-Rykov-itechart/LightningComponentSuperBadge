@@ -1,0 +1,10 @@
+<aura:component >
+	<aura:attribute name="recordId" type="String" />
+    <aura:attribute name="record" type="Object" />
+    <aura:attribute name="simpleRecord" type="Object" />
+	<force:recordData recordId="{!v.recordId}" targetRecord="{!v.record}"
+                      targetFields="{!v.simpleRecord}"
+                      fields="Id, Name, Industry" />
+    Account Name: <ui:outputText value="{!v.simpleRecord.Name}" />
+    Account Industry : <ui:outputText value="{!v.simpleRecord.Industry}" />
+</aura:component>

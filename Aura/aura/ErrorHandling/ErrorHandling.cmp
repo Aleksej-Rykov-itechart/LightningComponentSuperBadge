@@ -1,0 +1,7 @@
+<!--c:errorHandling-->
+<aura:component >
+    <!--Enter a number: <ui:inputText aura:id="inputCmp"/> <br/>-->
+    <!-- Custom Errorhandling-->
+     Enter a number: <ui:inputText aura:id="inputCmp" onError="{!c.handleError}" onClearErrors="{!c.handleClearError}"/>
+    <lightning:button label="Submit" onclick="{!c.doAction}"/>
+</aura:component>

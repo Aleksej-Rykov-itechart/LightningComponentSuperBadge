@@ -1,0 +1,27 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" 
+                access="global" controller="BoatSearchResults">
+    <aura:handler name="init" action="{!c.doSearch}" value="{!this}"/>
+    <aura:attribute name="boatTypeId" type="String" />
+    <aura:attribute name="boats" type="Boat__c[]" />    
+    <!-- Display errors, if any -->
+    <!--
+    <aura:if isTrue="{!not(empty(v.errorString))}">
+        <div class="recordError">
+            <ui:message title="Error" severity="error" closable="true">
+                {!v.errorString}
+            </ui:message>
+        </div>
+    </aura:if>-->
+    <aura:if isTrue="{!not(empty(v.boats))}">
+        <lightning:layout multipleRows="true" horizontalAlign="center">
+                <aura:iteration items="{!v.boats}" var="boatVar">
+                    <lightning:layoutItem flexibility="grow"  class="slds-m-right_small" >   
+                        <c:BoatTile boat="{!boatVar}"/>
+                    </lightning:layoutItem>
+                </aura:iteration>
+        </lightning:layout>
+         <aura:set attribute="else">
+        	<div class="slds-align_absolute-center">No boats found</div>
+    	</aura:set>
+    </aura:if>
+</aura:component>

@@ -1,0 +1,32 @@
+<aura:component controller="CampingListController" >	
+	<aura:attribute name="items" type="Camping_Item__c[]"/>
+    	
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="addItem" event="c:addItemEvent"
+   	action="{!c.handleAddItem }"/>
+   		
+    <lightning:layout >
+            <lightning:layoutItem padding="around-small" size="6">
+                <c:campingListForm />
+            </lightning:layoutItem>
+    </lightning:layout>
+        
+    <div class="slds-card slds-p-top--medium">
+        <header class="slds-card__header">
+            <h3 class="slds-text-heading--small">Camping</h3>
+        </header>
+        
+        <section class="slds-card__body">
+            <div id="list" class="row">
+                <aura:if isTrue="{!empty(v.items)}">
+                    No Camping Items to display
+                	<aura:set attribute="else">
+                        <aura:iteration items="{!v.items}" var="cmp">
+                            <c:campingListItem item="{!cmp}"/>
+                        </aura:iteration>
+                    </aura:set>
+                </aura:if>
+            </div>
+        </section>
+    </div>
+</aura:component>
