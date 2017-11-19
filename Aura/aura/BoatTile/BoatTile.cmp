@@ -1,4 +1,5 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global" >
+	<!-- Updated Comments-->
     <aura:attribute name="boat" type="Boat__c" />
         <lightning:button class="tile">
             <div style="{!'background-image: url(\'' + v.boat.Picture__c + '\')'}" class="innertile">

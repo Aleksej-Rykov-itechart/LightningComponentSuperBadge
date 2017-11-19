@@ -1,3 +1,4 @@
 <aura:component >
+<!-- Update list-->
 	<c:campingList />
 </aura:component>
